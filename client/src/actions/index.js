@@ -69,8 +69,12 @@ export function sort(orden, opaises){
 
 	paises.sort((a,b) => {
 
-		var nombreA = (a.habitantes || 1) / (a.area ||  1);
-        var nombreB = (b.habitantes || 1) / (b.area || 1);
+		// Para el filtro de población por km2
+		// var nombreA = (a.habitantes || 1) / (a.area ||  1);
+  		// var nombreB = (b.habitantes || 1) / (b.area || 1);
+
+  		var nombreA = a.nombre.toUpperCase()
+  		var nombreB = b.nombre.toUpperCase()
 
 
 		if(orden === ASD){

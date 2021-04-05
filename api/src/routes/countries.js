@@ -42,39 +42,37 @@ router.get('/', async (req, res) => {
 		return res.json(fActivity)
 	} else {
 
-		// CODIGO PARA CREAR PAISES
-		// fetch('https://restcountries.eu/rest/v2/all')
-		// .then(response => response.json())
-		// .then(response => {
-		
-		// 	response.forEach(c => {
-	
-		// 		var paises = Country.findOrCreate({
-		// 		where:{
-		// 			id: c.alpha3Code,
-		// 			nombre: c.name,
-		// 			bandera: c.flag,
-		// 			continente: c.region,
-		// 			capital: c.capital,
-		// 			subregion: c.subregion,
-		// 			area: c.area ? c.area.toString() : null,
-		// 			poblacion: c.population ? c.population.toString() : 0
-		// 		}
-		// 	})
-		// 		return paises
-		// 	})
-		// }).catch(error =>{
-		// console.error("ERROR EN LA CREACION", error)
-		// })
+		const counts = await Country.findAll()
 
-		//CODIGO PARA BUSCAR EN LA BASE DE DATOS
-		Country.findAll()
-			.then(count => {
-			res.json(count)
+		if (counts){
+			res.send(counts)
+		} else {
+			fetch('https://restcountries.eu/rest/v2/all')
+			.then(response => response.json())
+			.then(response => {
+		
+			response.forEach(c => {
+	
+				var paises = Country.findOrCreate({
+				where:{
+					id: c.alpha3Code,
+					nombre: c.name,
+					bandera: c.flag,
+					continente: c.region,
+					capital: c.capital,
+					subregion: c.subregion,
+					area: c.area ? c.area.toString() : null,
+					poblacion: c.population ? c.population.toString() : 0
+				}
+			})
+				return paises
+			})
+		}).catch(error =>{
+		console.error("ERROR EN LA CREACION", error)
 		})
-		.catch(error =>{
-			console.error("ERROR AL TRAER DE LA DB", error)
-		})
+		}
+
+		
 	}
 })
 
