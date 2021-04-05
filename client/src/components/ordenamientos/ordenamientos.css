@@ -1,0 +1,25 @@
+.conteins{
+	display: flex;
+}
+
+.hab{
+	margin-left: 10px
+}
+
+.conteins .alfa {
+	font-size: 15px;
+    border: none;
+    background-color: #AAB6B9;
+    color: #14302e;
+    padding: 6px;
+    font-weight: bolder;
+}
+
+.conteins .hab{
+	font-size: 15px;
+    border: none;
+    background-color: #AAB6B9;
+    color: #14302e;
+    padding: 6px;
+    font-weight: bolder;
+}

@@ -9,16 +9,29 @@ const country = {
   name: 'Argentina',
 };
 
-describe('Country routes', () => {
-  before(() => conn.authenticate()
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  }));
-  beforeEach(() => Country.sync({ force: true })
-    .then(() => Country.create(pokemon)));
-  describe('GET /countries', () => {
-    it('should get 200', () =>
-      agent.get('/countries').expect(200)
-    );
-  });
-});
+// describe('Ruta Post', () => {
+//   before(() => conn.authenticate()
+//   .catch((err) => {
+//     console.error('Unable to connect to the database:', err);
+//   }));
+//   describe('POST /countries', () => {
+//     it('responds with 200', () => agent.post('/countries').expect(200))
+//     it('should return the detail of the country', (done) => 
+//       agent.post('/countries')
+//       .send({
+//         id: ["BHR","AUS","ARM","ABW","AGO"],
+//         nombre: "futbol",
+//         dificultad: "1",
+//         duracion: "dos horas",
+//         temporada: "verano"
+//         }).then(function(res){
+//           expect(res.body).to.deep.equal({
+//         id: ["BHR","AUS","ARM","ABW","AGO"],
+//         nombre: "futbol",
+//         dificultad: "1",
+//         duracion: "dos horas",
+//         temporada: "verano"})
+//         })
+//       )
+//   });
+// });

@@ -1,0 +1,13 @@
+.contenedor{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.paginationBtns{
+	margin-top: 40px;
+	width: 80%;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+}

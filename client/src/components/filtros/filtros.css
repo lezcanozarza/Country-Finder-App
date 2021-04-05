@@ -1,0 +1,23 @@
+.filtros{
+	display: flex;
+}
+
+.filtros .filtroContinente{
+	margin-right: 10px;
+	margin-left: 10px;
+	font-size: 15px;
+    border: none;
+    background-color: #AAB6B9;
+    color: #14302e;
+    padding: 6px;
+    font-weight: bolder;
+}
+
+.filtros .filtroActividades{
+	font-size: 15px;
+    border: none;
+    background-color: #AAB6B9;
+    color: #14302e;
+    padding: 6px;
+    font-weight: bolder;
+}
