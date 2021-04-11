@@ -8,7 +8,7 @@ export function Landingpage(){
 		<div className="lndpage">
 		<h1>Country Finder App</h1>
 		<Link to='/home'>
-			<button className="btnp">Página Principal</button>
+			<button className="btnp">Homepage</button>
 		</Link>
 		</div>
 		</div>

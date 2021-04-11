@@ -1,0 +1,70 @@
+
+
+
+.acont{
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.adesc{
+	display: flex;
+	flex-direction: column;
+	font-family: Poppins;
+	max-width: 800px;
+
+}
+
+.adesc p{
+	font-size: 20px
+}
+
+.foto{
+	width: 250px;
+	height: 250px
+}
+
+.mCont{
+	height: 480px
+}
+
+.me{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.me span{
+	font-size: 30px;
+	font-family: Arvo;
+	margin-bottom: 10px
+}
+
+.me p{
+	font-size: 20px;
+	font-family: Arvo;
+	height: 0px
+}
+
+.ddesc{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icos{
+	margin-top: 20px;
+	width: 35px;
+	cursor: pointer
+}
+.icos:hover{
+	width: 40px;
+	transition-duration: 0.3s
+}
+
+.icons{
+	display: flex;
+    justify-content: space-around;
+	width: 100px;
+}

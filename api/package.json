@@ -6,7 +6,6 @@
   "scripts": {
     "start": "nodemon -L",
     "test": "mocha --timeout 30000"
-
   },
   "author": "Henry",
   "license": "ISC",

@@ -4,6 +4,7 @@ import { GET_COUNTRIES, GET_COUNTRY_DETAIL, CHANGE_COUNTRIES,
 const initialState={
 	countries:[],
 	countryDetail:{},
+	countryName:[],
 	actividades:[]
 }
 
@@ -17,7 +18,8 @@ function rootReducer(state=initialState, action){
 	if (action.type === GET_COUNTRY_DETAIL){
 		return{
 			...state,
-			countryDetail: action.payload
+			countryDetail: action.payload,
+			countryName: action.payload.nombre
 		}
 	}
 	if (action.type === GET_COUNTRY){

@@ -15,9 +15,17 @@
 	color: white;
 }
 
+.card h1{
+	font-size: 25px
+}
+
+.card h2{
+	font-size: 20px
+}
 .card:hover{
 	width: 290px;
-	height: 410px
+	height: 410px;
+	transition-duration: 0.1s
 }
 
 .imgn{
@@ -29,7 +37,8 @@
 
 .imaa{
 	border: 2px solid #684a32;
-	border-radius: 15px
+	border-radius: 15px;
+	max-width: 250px
 }
 
 .detail{

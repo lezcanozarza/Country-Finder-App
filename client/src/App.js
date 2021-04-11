@@ -7,6 +7,7 @@ import Home from './components/home/home.js'
 import Detalles from './components/detalles/detalles.js'
 import CrearActividad from './components/crearactividad/crearactividad.js'
 import Navbar from './components/navbar/navbar.js'
+import About from './components/about/about.js'
 
 export function App() {
   return (
@@ -18,6 +19,7 @@ export function App() {
     <Route exact path="/home" component={Home}/>
     <Route exact path="/home/detalles/:idPais" component={Detalles}/>
     <Route exact path="/home/crear" component={CrearActividad}/>
+    <Route exact path="/home/about" component={About}/>
     </div>
     </div>
     </React.Fragment>

@@ -6,7 +6,7 @@ export function Country(props){
 	return(
 		<div className="card">
 		<div className="imgn">
-			<img src={props.bandera} alt={props.nombre} width="250px" className='imaa'/>
+			<img src={props.bandera} alt={props.nombre} className='imaa'/>
 		</div>
 		<div className="datos">
 			<div className="nombre">

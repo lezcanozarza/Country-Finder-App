@@ -2,7 +2,7 @@ import React, {useEffect}  from 'react'
 import { connect } from 'react-redux';
 import './filtros.css'
 
-import { filtroCont, changeCountries, getActivities } from '../../actions/index.js'
+import { filtroCont, changeCountries, getActivities, getCountries } from '../../actions/index.js'
 
 export function Filtros(props){
 
@@ -11,7 +11,7 @@ export function Filtros(props){
 	},[])
 
 	function handleDispatchCont(event) {
-  		props.filtroCont(event.target.value);
+		props.filtroCont(event.target.value)
   	}
   	function handleDispatchAct(event) {
   		props.changeCountries(event.target.value)
@@ -20,18 +20,17 @@ export function Filtros(props){
   	return(
   	<div className="filtros">
 	  		<select className="filtroContinente" name="continent" onChange={handleDispatchCont}>
-			    <option value="">Filtrar por Continente</option>
+			    <option value="">Filter by Continent</option>
 			    <option value="Europe">Europe</option>
 			    <option value="Americas">Americas</option>
 			    <option value="Asia">Asia</option>
 			    <option value="Oceania">Oceania</option>
 			    <option value="Africa">Africa</option>
 			    <option value="Polar">Polar</option>
-			    <option value="Sin Continente">Sin Continente</option>
 		    </select>
 
   			<select className="filtroActividades" name="actividades" onChange={handleDispatchAct}>
-	  			<option value="">Filtrar por actividades</option>
+	  			<option value="">Filtrar by Tourist Activity</option>
 	  			{props.activities && props.activities.map(s => (
 	  			<option value={s.nombre}>{s.nombre}</option>
 	  			))}
@@ -52,7 +51,8 @@ function mapDispatchToProps(dispatch){
 	return {
 		filtroCont:(a, b) => dispatch(filtroCont(a,b)),
 		getActivities: () => dispatch(getActivities()),
-		changeCountries: (name) => dispatch(changeCountries(name))
+		changeCountries: (name) => dispatch(changeCountries(name)),
+		getCountries: () => dispatch(getCountries())
 	}
 }
 

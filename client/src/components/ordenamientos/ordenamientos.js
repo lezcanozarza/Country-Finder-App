@@ -22,15 +22,15 @@ export function Ordenamientos(props){
   		<div className="conteins">
 
 		  		<select className="alfa" onChange={handleDispatchOrder}>
-				    <option>Ordenar Alfabeticamente</option>
-				    <option value={ASD}>Ascendente</option>
-				    <option value={DES}>Descendente</option>
+				    <option>order Alphabetically</option>
+				    <option value={ASD}>Ascendant</option>
+				    <option value={DES}>descendant</option>
 				 </select>
 
 				<select className="hab" onChange={handleDispatchHab}>
-				    <option>Ordenar Por Habitantes</option>
-				    <option value={HASD}>Ascendente</option>
-				    <option value={HDES}>Descendente</option>
+				    <option>Order by Habitants</option>
+				    <option value={HASD}>Ascendant</option>
+				    <option value={HDES}>descendant</option>
 				 </select>
 			
 

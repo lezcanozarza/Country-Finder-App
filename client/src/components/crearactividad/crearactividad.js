@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import fetch from 'node-fetch';
 import { connect } from 'react-redux';
-import { getCountries } from '../../actions/index.js';
+import { getCountries, getCountryDetail } from '../../actions/index.js';
 import logo from '../../images/crear-pais.png';
 import './crearactividad.css';
 
@@ -12,9 +12,13 @@ export function CrearActividad(props){
 	    nombre: "",
 	    dificultad: "",
 	    duracion: "",
-	    temporada: "",
-      paises: ""
+	    temporada: ""
+
  	})
+
+  const [inCountry, setInCountry] = useState({
+    pais: []
+  })
 
  	function handleChange(e) {
 
@@ -24,12 +28,30 @@ export function CrearActividad(props){
     	})
   	}
 
-  function handlePais(e) {
+  function handlePais (e) {
+    
+    props.getCountryDetail(e.target.value)
 
+    
     setInput({
       ...input,
       [e.target.name]:[...input.id, e.target.value]
+      // [input.pais]:[...input.pais,]
     })
+
+    setInCountry({
+      pais:[...inCountry.pais, props.countryName]
+    })
+
+    // let paisId = e.target.value
+
+    // const paisDato = await props.getCountryDetail(paisId)
+    
+    //   console.log('ACAAAAA', paisDato)
+    // setInCountry({
+      
+    // })
+    
 
   }
 
@@ -64,8 +86,8 @@ export function CrearActividad(props){
         </div>
         <div className="desc">
           <p style={{fontSize:"25px"}}> <strong>Welcome to the activity creation page!</strong> <br/><br/>
-          Whether you are a tourist who passed through the country,<br/> a local who wants to register one,
-          or you simply know of a tourist activity <br/> that is not in our systems,
+          Whether you are a tourist who passed through the country, a local who wants to register one,
+          or you simply know of a tourist activity that is not in our systems,
           you can add them in the creation form.</p>
         </div>
       </div>
@@ -127,7 +149,7 @@ export function CrearActividad(props){
         <div>
         <p className="texto">In which countries does the activity take <br/> place? (you can select more than one)</p>
         <select className="selects" name="id" value={input.id} onChange={handlePais}>
-          <option value="">Pais</option>
+          <option value="">Country</option>
           {props.countries && props.countries.map(c => (
             <option value={c.id} name="c.nombre">{c.nombre}</option>
           ))}
@@ -143,13 +165,15 @@ export function CrearActividad(props){
 
 function mapStateToProps(state) {
   return {
-    countries: state.countries
+    countries: state.countries,
+    countryName: state.countryName
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getCountries:() => dispatch(getCountries())
+    getCountries:() => dispatch(getCountries()),
+    getCountryDetail: (id) => dispatch(getCountryDetail(id))
   }
 }
 

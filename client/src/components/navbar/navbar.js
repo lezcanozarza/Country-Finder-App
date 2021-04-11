@@ -16,7 +16,7 @@ export function Navbar(){
 						<NavLink to="/home" className="logo">Country Finder</NavLink>
 						</div>
 						<NavLink to="/home/crear" className="listItem">Create Activity</NavLink>
-						<NavLink to="/home" className="listItem">About</NavLink>
+						<NavLink to="/home/about" className="listItem">About</NavLink>
 						<div className="srch">
 						<Search/>
 						</div>

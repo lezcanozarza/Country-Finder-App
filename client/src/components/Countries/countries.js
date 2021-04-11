@@ -39,9 +39,9 @@ export function Countries(props){
 {/*---------------PAGINADO BOTONES------------------*/}
 
 				<div className="paginationBtns">
-					<button onClick={() => setNumeroPagina(numeroPagina - 1)}>atrás</button>
+					<button onClick={() => setNumeroPagina(numeroPagina - 1)}>backward</button>
 			        <button>{numeroPagina}</button>
-			        <button onClick={() => setNumeroPagina(numeroPagina + 1)}>adelante</button>
+			        <button onClick={() => setNumeroPagina(numeroPagina + 1)}>forward</button>
 		        </div>
 			</div>
 		</div>
