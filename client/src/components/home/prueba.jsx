@@ -22,13 +22,16 @@ export default function Prueba(){
 
 			Axios.post('http://api.cloudinary.com/v1_1/techstore/image/upload', formData)
 			.then(response => {
-				qwe.push(response.data.secure_url)
+				qwe.push({
+					link: response.data.secure_url,
+					public_id: response.data.public_id
+				})
 				console.log(response)
 		})
 		})
 		
 		setImagenes({
-			asd:[qwe]
+			asd: [...imagenes.asd, qwe]
 		})
 	};
 
@@ -38,22 +41,15 @@ export default function Prueba(){
 	<div>
 	<input type="file" 
 	onChange={(event) => {
-		setImages({
-			links:[...images.links, event.target.files[0]]
+		var linkes=[]
+		for (var i = 0; i < event.target.files.length; i++) {
+			linkes.push(event.target.files[i])
+		 }
+		 setImages({
+			links: linkes
 		})
-	}}/>
-	<input type="file" 
-	onChange={(event) => {
-		setImages({
-			links:[...images.links, event.target.files[0]]
-		})
-	}}/>
-	<input type="file" 
-	onChange={(event) => {
-		setImages({
-			links:[...images.links, event.target.files[0]]
-		})
-	}}/>
+
+	}} multiple/>
 	<button onClick={upload}>upload</button>
 
 
