@@ -26,28 +26,33 @@ conn.sync({ force: false }).then(() => {
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
 
-    fetch('https://restcountries.eu/rest/v2/all')
-    .then(response => response.json())
+    Country.findAll()
     .then(response => {
+      if (!response) {
+        fetch('https://restcountries.eu/rest/v2/all')
+        .then(response => response.json())
+        .then(response => {
 
-    response.forEach(c => {
+        response.forEach(c => {
 
-    	var paises = Country.findOrCreate({
-    	where:{
-    		id: c.alpha3Code,
-    		nombre: c.name,
-    		bandera: c.flag,
-    		continente: c.region,
-    		capital: c.capital,
-    		subregion: c.subregion,
-    		area: c.area ? c.area : null,
-    		poblacion: c.population ? c.population : 0
-    	}
+        	var paises = Country.findOrCreate({
+        	where:{
+        		id: c.alpha3Code,
+        		nombre: c.name,
+        		bandera: c.flag,
+        		continente: c.region,
+        		capital: c.capital,
+        		subregion: c.subregion,
+        		area: c.area ? c.area : null,
+        		poblacion: c.population ? c.population : 0
+        	}
+        })
+        })
+        })
+      }
     })
-    	return paises
-    })
-    }).catch(error =>{
-    console.error("ERROR EN LA CREACION", error)
-    })
+
+
+
   });
 });
