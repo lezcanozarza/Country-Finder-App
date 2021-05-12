@@ -7,6 +7,9 @@ const bodyParser = require('body-parser')
 
 router.use(bodyParser.json())
 
+
+
+
 router.get('/', async (req, res) => {
 	var name = req.query.name
 	var continen = req.query.continent
@@ -44,33 +47,31 @@ router.get('/', async (req, res) => {
 
 		const counts = await Country.findAll()
 
-		if (counts){
-			res.send(counts)
-		} else {
-		fetch('https://restcountries.eu/rest/v2/all')
-		.then(response => response.json())
-		.then(response => {
-	
-		response.forEach(c => {
+		res.send(counts)
+		// fetch('https://restcountries.eu/rest/v2/all')
+		// .then(response => response.json())
+		// .then(response => {
+		//
+		// response.forEach(c => {
+		//
+		// 	var paises = Country.findOrCreate({
+		// 	where:{
+		// 		id: c.alpha3Code,
+		// 		nombre: c.name,
+		// 		bandera: c.flag,
+		// 		continente: c.region,
+		// 		capital: c.capital,
+		// 		subregion: c.subregion,
+		// 		area: c.area ? c.area.toString() : null,
+		// 		poblacion: c.population ? c.population.toString() : 0
+		// 	}
+		// })
+		// 	return paises
+		// })
+		// }).catch(error =>{
+		// console.error("ERROR EN LA CREACION", error)
+		// })
 
-			var paises = Country.findOrCreate({
-			where:{
-				id: c.alpha3Code,
-				nombre: c.name,
-				bandera: c.flag,
-				continente: c.region,
-				capital: c.capital,
-				subregion: c.subregion,
-				area: c.area ? c.area.toString() : null,
-				poblacion: c.population ? c.population.toString() : 0
-			}
-		})
-			return paises
-		})
-		}).catch(error =>{
-		console.error("ERROR EN LA CREACION", error)
-		})
-	}
 	}
 })
 
@@ -86,7 +87,7 @@ router.get('/detalle/:idPais', async (req, res) => {
 
 router.post('/', async(req, res) => {
 	const newActivity =  await Actividad.create({
-		
+
 			nombre: req.body.nombre,
 			dificultad: req.body.dificultad,
 			duracion: req.body.duracion,
@@ -99,16 +100,15 @@ router.post('/', async(req, res) => {
 	var activi = newActivity
 
 	var relaciones = []
-	// console.log('ACA ESTAN LOS IDPAISES', idPaises)
+
 
 	idPaises.map(p => {
-		// console.log('ACA ESTA LO DE P', p)
+
 		relaciones.push(
 			{actividadId:[actividadId],
 			countryId: p}
 			)
 	})
-	// console.log('ESTE DEBERÍA SER EL ARREGLO FINAL', relaciones)
 
 
 	act_count.bulkCreate(relaciones)

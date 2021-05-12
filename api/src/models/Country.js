@@ -30,10 +30,10 @@ module.exports = (sequelize) => {
     	type: DataTypes.STRING
     },
     area:{
-    	type: DataTypes.STRING
+    	type: DataTypes.INTEGER
     },
     poblacion:{
-    	type: DataTypes.STRING
+    	type: DataTypes.INTEGER
     }
   });
   sequelize.define('actividad', {
@@ -49,7 +49,6 @@ module.exports = (sequelize) => {
     temporada:{
       type: DataTypes.ENUM("invierno","verano","primavera","otoño")
     }
-    
+
   });
 };
-

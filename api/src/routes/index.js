@@ -6,8 +6,14 @@ const countries = require("./countries");
 
 const router = Router();
 
+const { Country } = require ('../db.js')
+
+
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+
+
+
 router.use('/countries', countries);
 
 
